@@ -1,0 +1,73 @@
+# Environment variables (содержит чувствительные данные)
+.env
+
+# Зависимости Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Рабочие данные
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Директория для инструментированных библиотек
+lib-cov
+
+# Покрытие кода
+coverage/
+*.lcov
+
+# nyc покрытие тестов
+.nyc_output
+
+# Директории зависимостей
+jspm_packages/
+
+# Кэш npm
+.npm
+
+# Кэш eslint
+.eslintcache
+
+# Кэш микробандла
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# История REPL
+.node_repl_history
+
+# Результат 'npm pack'
+*.tgz
+
+# Файл целостности Yarn
+.yarn-integrity
+
+# Кэш parcel-bundler
+.cache
+.parcel-cache
+
+# Файлы IDE
+.idea/
+.vscode/
+
+# Системные файлы OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Логи
+logs
+*.log
+
+# Временные файлы
+*.tmp
+*.temp

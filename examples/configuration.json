@@ -1,0 +1,125 @@
+{
+  "application": {
+    "name": "LLM File Processor",
+    "version": "1.0.0",
+    "description": "Демонстрация prompt engineering через обработку файлов",
+    "author": "AI Developer",
+    "license": "MIT"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "cors": {
+      "enabled": true,
+      "origins": ["http://localhost:3000", "http://127.0.0.1:3000"],
+      "methods": ["GET", "POST", "OPTIONS"],
+      "allowedHeaders": ["Content-Type", "Authorization"]
+    },
+    "rateLimit": {
+      "windowMs": 900000,
+      "maxRequests": 100,
+      "message": "Превышен лимит запросов, попробуйте позже"
+    }
+  },
+  "llm": {
+    "defaultModel": "google/gemini-2.5-pro-exp-03-25",
+    "alternativeModels": [
+      "openai/gpt-4o",
+      "anthropic/claude-3.5-sonnet",
+      "meta-llama/llama-3.2-90b-vision-instruct"
+    ],
+    "maxTokens": 4096,
+    "temperature": 0.7,
+    "systemPrompt": "Вы - помощник, специализирующийся на анализе файлов и ответах на вопросы о их содержимом. Предоставляйте структурированные, детальные и полезные ответы.",
+    "timeout": 30000
+  },
+  "files": {
+    "maxFileSize": 10485760,
+    "maxFilesPerRequest": 50,
+    "supportedExtensions": [
+      ".txt", ".md", ".js", ".json", ".py", ".java", 
+      ".cpp", ".c", ".h", ".css", ".html", ".xml",
+      ".yaml", ".yml", ".ini", ".conf", ".cfg",
+      ".log", ".csv", ".sql"
+    ],
+    "excludedDirectories": [
+      "node_modules", ".git", ".vscode", ".idea",
+      "build", "dist", "target", "__pycache__"
+    ]
+  },
+  "ui": {
+    "theme": "auto",
+    "language": "ru",
+    "defaultPrompts": [
+      "Проанализируй этот код на предмет лучших практик",
+      "Найди потенциальные баги и уязвимости",
+      "Объясни основные функции и логику",
+      "Предложи способы оптимизации",
+      "Создай документацию для этого кода"
+    ],
+    "features": {
+      "syntaxHighlighting": true,
+      "lineNumbers": true,
+      "darkMode": true,
+      "autoSave": true,
+      "dragAndDrop": false
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/app.log",
+    "maxFileSize": "10m",
+    "maxFiles": 5,
+    "format": "json",
+    "timestamp": true,
+    "categories": {
+      "api": "debug",
+      "fileOperations": "info",
+      "llmIntegration": "info",
+      "errors": "error"
+    }
+  },
+  "cache": {
+    "enabled": true,
+    "type": "memory",
+    "ttl": 3600000,
+    "maxSize": 100,
+    "clearOnRestart": true
+  },
+  "security": {
+    "apiKeyValidation": true,
+    "requestValidation": {
+      "enabled": true,
+      "promptMaxLength": 10000,
+      "filePathValidation": true,
+      "sanitizeInput": true
+    },
+    "headers": {
+      "contentSecurityPolicy": true,
+      "xssProtection": true,
+      "noSniff": true,
+      "frameOptions": "DENY"
+    }
+  },
+  "monitoring": {
+    "enabled": false,
+    "metrics": {
+      "responseTime": true,
+      "requestCount": true,
+      "errorRate": true,
+      "memoryUsage": true
+    },
+    "alerts": {
+      "errorThreshold": 10,
+      "responseTimeThreshold": 5000,
+      "memoryThreshold": 0.9
+    }
+  },
+  "development": {
+    "hotReload": true,
+    "debugMode": true,
+    "mockResponses": false,
+    "verboseLogging": true,
+    "sourceMapSupport": true
+  }
+}

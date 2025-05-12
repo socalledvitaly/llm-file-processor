@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM File Processor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LLM File Processor</h1>
+    </header>
+    
+    <main>
+      <div class="sidebar">
+        <h2>File Explorer</h2>
+        <div class="file-tree" id="fileTree">
+          <div class="loading">Loading files...</div>
+        </div>
+      </div>
+      
+      <div class="content">
+        <div class="prompt-section">
+          <h2>Prompt</h2>
+          <textarea id="promptInput" placeholder="Enter your prompt here..."></textarea>
+        </div>
+        
+        <div class="selected-files-section">
+          <h2>Selected Files</h2>
+          <div id="selectedFiles" class="selected-files-list">
+            <p class="no-files">No files selected</p>
+          </div>
+        </div>
+        
+        <div class="button-section">
+          <button id="submitButton">Submit to GPT-4o</button>
+        </div>
+        
+        <div class="response-section">
+          <h2>Response</h2>
+          <div id="responseArea" class="response-area">
+            <p class="no-response">Response will appear here</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>LLM File Processor &copy; 2025</p>
+    </footer>
+  </div>
+  
+  <script src="client.js"></script>
+</body>
+</html>
